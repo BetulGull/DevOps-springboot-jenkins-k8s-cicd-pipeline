@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops4-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devops4
+  template:
+    metadata:
+      labels:
+        app: devops4
+    spec:
+      containers:
+        - name: devops4
+          image: munevvernure/devops4:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
